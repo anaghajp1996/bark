@@ -18,7 +18,9 @@ class BreedDetailVM: ObservableObject {
         URLSession.shared.dataTask(with: request) {(data, response, error) in
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(BreedDetail.self, from: data) {
-                    self.breedDetail = decodedResponse
+                    DispatchQueue.main.async {
+                        self.breedDetail = decodedResponse
+                    }
                 }
             }
         }.resume()

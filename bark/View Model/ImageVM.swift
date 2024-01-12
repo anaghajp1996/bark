@@ -18,7 +18,9 @@ class ImageVM: ObservableObject {
         URLSession.shared.dataTask(with: request) {(data, response, error) in
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(Image.self, from: data) {
-                    self.image = decodedResponse
+                    DispatchQueue.main.async {
+                        self.image = decodedResponse
+                    }
                 }
             }
         }.resume()

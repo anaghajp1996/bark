@@ -14,7 +14,7 @@ struct BreedDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             AsyncImageView(url: imageURL)
-                .frame(width: .infinity, height: 200)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 .cornerRadius(20)
             Text(dog.name ?? "N/A").font(.title).fontWeight(.heavy)
             VStack(alignment: .leading, spacing: 12) {

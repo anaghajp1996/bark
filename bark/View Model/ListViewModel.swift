@@ -19,7 +19,9 @@ class ListVM: ObservableObject {
         URLSession.shared.dataTask(with: request) {(data, response, error) in
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode([Dog].self, from: data) {
-                    self.dogs = decodedResponse
+                    DispatchQueue.main.async {
+                        self.dogs = decodedResponse
+                    }
                 }
             }
         }.resume()
