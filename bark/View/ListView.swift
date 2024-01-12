@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListView: View {
     @StateObject var listVM = ListVM()
+    @State var openSheet = false
     var body: some View {
         NavigationSplitView {
             List {
@@ -24,6 +25,31 @@ struct ListView: View {
                 await listVM.getBreeds(limit: 10, page: 0)
         }
             .navigationTitle("Breeds")
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarLeading) {
+                    Label("", systemImage: "pawprint.fill")
+                }
+            })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        openSheet = true
+                    } label: {
+                        Text("Upgrade")
+                    }.sheet(isPresented: $openSheet, content: {
+                        VStack(alignment: .trailing) {
+                            Button {
+                                openSheet = false
+                            } label: {
+                                Label("", systemImage: "xmark")
+                            }.padding()
+                            Spacer()
+                            Carosel()
+                            Spacer()
+                        }
+                    })
+                }
+            }
         } detail: {
             Text("Select a breed")
         }
