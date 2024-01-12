@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct CardView: View {
+struct BreedView: View {
     let dog: Dog
     @StateObject var imageVM = ImageVM()
     var body: some View {
         
         NavigationLink {
-            DogDetailView(dog: dog, imageURL: imageVM.image?.url)
+            BreedDetailView(dog: dog, imageURL: imageVM.image?.url)
         } label: {
             HStack {
                 AsyncImageView(url: imageVM.image?.url)
@@ -38,5 +38,5 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(dog: Dog(id: 1, name: "Breed name", reference_image_id: "BJa4kxc4X", bred_for: "Alphanso"))
+    BreedView(dog: Dog(id: 1, name: "Breed name", reference_image_id: "BJa4kxc4X", bred_for: "Alphanso"))
 }

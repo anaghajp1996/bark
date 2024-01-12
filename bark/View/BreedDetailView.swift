@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DogDetailView: View {
+struct BreedDetailView: View {
     let dog: Dog
     let imageURL: String?
     var body: some View {
@@ -19,5 +19,5 @@ struct DogDetailView: View {
 }
 
 #Preview {
-    DogDetailView(dog: Dog(id: 1, name: "Breed", reference_image_id: "1-7cgoZSh", bred_for: "Hunting"), imageURL: "https://cdn2.thedogapi.com/images/1-7cgoZSh.jpg")
+    BreedDetailView(dog: Dog(id: 1, name: "Breed", reference_image_id: "1-7cgoZSh", bred_for: "Hunting"), imageURL: "https://cdn2.thedogapi.com/images/1-7cgoZSh.jpg")
 }
