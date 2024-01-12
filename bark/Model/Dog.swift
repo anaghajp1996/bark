@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Dog: Decodable {
+struct Dog: Decodable, Equatable, Hashable {
     let id: Int?
     let name: String?
     let reference_image_id: String?

@@ -10,45 +10,59 @@ import SwiftUI
 struct ListView: View {
     @StateObject var listVM = ListVM()
     @State var openSheet = false
+    @State private var limit = 10
+    @State private var page = 0
+    @State private var isLast = false
+    @State var list = Array(0...10)
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(listVM.dogs, id: \.self.id) { dog in
-                    BreedView(dog: dog)
-                        .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                        .listRowSeparator(.hidden)
-                        .listRowBackground(Color.clear)
+            VStack {
+                List {
+                    ForEach(listVM.dogs, id: \.self) { dog in
+                        BreedView(dog: dog)
+                            .onAppear() {
+                                if(dog == listVM.dogs.last) {
+                                    Task {
+                                        if limit < 100 {
+                                            limit += 10
+                                            page += 1
+                                            await listVM.getBreeds(limit: limit, page: page)
+                                        }
+                                    }
+                                }
+                            }
                     }
-                .padding(0)
-            }
-            .task {
-                await listVM.getBreeds(limit: 10, page: 0)
-        }
-            .navigationTitle("Breeds")
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarLeading) {
-                    Label("", systemImage: "pawprint.fill")
                 }
-            })
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        openSheet = true
-                    } label: {
-                        Text("Upgrade")
-                    }.sheet(isPresented: $openSheet, content: {
-                        VStack(alignment: .trailing) {
-                            Button {
-                                openSheet = false
-                            } label: {
-                                Label("", systemImage: "xmark")
-                            }.padding()
-                            Spacer()
-                            Carosel()
-                            Spacer()
-                        }
-                    })
+                .task {
+                    await listVM.getBreeds(limit: limit, page: page)
                 }
+                .navigationTitle("Breeds")
+                .toolbar(content: {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Label("", systemImage: "pawprint.fill")
+                    }
+                })
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            openSheet = true
+                        } label: {
+                            Text("Upgrade")
+                        }.sheet(isPresented: $openSheet, content: {
+                            VStack(alignment: .trailing) {
+                                Button {
+                                    openSheet = false
+                                } label: {
+                                    Label("", systemImage: "xmark")
+                                }.padding()
+                                Spacer()
+                                Carosel()
+                                Spacer()
+                            }
+                        })
+                    }
+                }
+                listVM.isLoading ? AnyView(ProgressView()) : AnyView(EmptyView())
             }
         } detail: {
             Text("Select a breed")
