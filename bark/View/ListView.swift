@@ -16,7 +16,7 @@ struct ListView: View {
     @State var list = Array(0...10)
     var body: some View {
         NavigationStack() {
-            VStack {
+            ZStack {
                 List {
                     ForEach(listVM.dogs, id: \.self) { dog in
                         BreedView(dog: dog)
