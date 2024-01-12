@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D241420A2B50529E00D73209 /* ImageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24142092B50529E00D73209 /* ImageVM.swift */; };
+		D241420C2B50C76F00D73209 /* DogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D241420B2B50C76F00D73209 /* DogDetailView.swift */; };
+		D241420E2B50D32600D73209 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D241420D2B50D32600D73209 /* AsyncImageView.swift */; };
 		D2AD1DAD2B4F685200C2BDDA /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD1DAC2B4F685200C2BDDA /* ListViewModel.swift */; };
 		D2AD1DB12B4F68CF00C2BDDA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD1DB02B4F68CF00C2BDDA /* CardView.swift */; };
 		D2AD1DB32B4F692300C2BDDA /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD1DB22B4F692300C2BDDA /* Dog.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		D24142092B50529E00D73209 /* ImageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVM.swift; sourceTree = "<group>"; };
+		D241420B2B50C76F00D73209 /* DogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailView.swift; sourceTree = "<group>"; };
+		D241420D2B50D32600D73209 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		D2AD1DAC2B4F685200C2BDDA /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		D2AD1DB02B4F68CF00C2BDDA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D2AD1DB22B4F692300C2BDDA /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 			children = (
 				D2AD1DB02B4F68CF00C2BDDA /* CardView.swift */,
 				D2AD1DBA2B4FA0ED00C2BDDA /* ListView.swift */,
+				D241420B2B50C76F00D73209 /* DogDetailView.swift */,
+				D241420D2B50D32600D73209 /* AsyncImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,10 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D241420E2B50D32600D73209 /* AsyncImageView.swift in Sources */,
 				D2AD1DBB2B4FA0ED00C2BDDA /* ListView.swift in Sources */,
 				D2AD1DAD2B4F685200C2BDDA /* ListViewModel.swift in Sources */,
 				D2AD1DB52B4F6DEB00C2BDDA /* Colors.swift in Sources */,
 				D2AD1DB12B4F68CF00C2BDDA /* CardView.swift in Sources */,
+				D241420C2B50C76F00D73209 /* DogDetailView.swift in Sources */,
 				D2AD1DB92B4F709700C2BDDA /* Constants.swift in Sources */,
 				D2AD1DB32B4F692300C2BDDA /* Dog.swift in Sources */,
 				D2C3B7692B4E5B6E00DFA10B /* barkApp.swift in Sources */,
