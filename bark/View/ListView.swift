@@ -15,7 +15,7 @@ struct ListView: View {
     @State private var isLast = false
     @State var list = Array(0...10)
     var body: some View {
-        NavigationSplitView {
+        NavigationStack() {
             VStack {
                 List {
                     ForEach(listVM.dogs, id: \.self) { dog in
@@ -64,11 +64,9 @@ struct ListView: View {
                 }
                 listVM.isLoading ? AnyView(ProgressView()) : AnyView(EmptyView())
             }
-        } detail: {
-            Text("Select a breed")
         }
     }
 }
-#Preview {
-    ListView()
-}
+//#Preview {
+//    ListView(path: [])
+//}
